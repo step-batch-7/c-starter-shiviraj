@@ -20,12 +20,34 @@ int find_cube(int num)
   return num * find_square(num);
 }
 
+int find_gcd(int divident, int divisor)
+{
+  if (divisor == 0)
+  {
+    int thirdNumber = divident;
+    divident = divisor;
+    divisor = thirdNumber;
+  }
+  int reminder = divident % divisor;
+  if (reminder == 0)
+  {
+    return divisor;
+  }
+  return find_gcd(divisor, reminder);
+}
+
+int find_lcm(int num1, int num2)
+{
+  return num1 * num2 / find_gcd(num1, num2);
+}
+
 int main(void)
 {
-  int num;
-  printf("Enter a number: ");
-  scanf("%d", &num);
-  char square = find_cube(num);
-  printf("%d\n", square);
+  int num1, num2;
+  printf("Enter two numbers: ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  int lcm = find_lcm(num1, num2);
+  printf("%d\n", lcm);
   return 0;
 }

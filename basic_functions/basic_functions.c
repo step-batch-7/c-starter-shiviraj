@@ -71,12 +71,30 @@ float convert_celsius_to_fahrenheit(float temp_in_C)
   return (temp_in_C * 9 / 5) + 32;
 }
 
+int find_greatest_num(int num1, int num2)
+{
+  int greatest_num = num2;
+  if (num1 > num2)
+  {
+    greatest_num = num1;
+  }
+  return greatest_num;
+}
+
+int find_greatest_of_three(int num1, int num2, int num3)
+{
+  int greatest_num = find_greatest_num(num1, num2);
+  return find_greatest_num(greatest_num, num3);
+}
+
 int main(void)
 {
-  int temp;
-  printf("Enter temp in F: ");
-  scanf("%d", &temp);
-  float temp_in_C = convert_fahrenheit_to_celsius(temp);
-  printf("%.2f\n", temp_in_C);
+  int num1, num2, num3;
+  printf("Enter three num: ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  scanf("%d", &num3);
+  int greatest_num = find_greatest_of_three(num1, num2, num3);
+  printf("%d\n", greatest_num);
   return 0;
 }

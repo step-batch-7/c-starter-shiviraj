@@ -77,12 +77,29 @@ int product_of_n_num(int starting_num, int total_num)
   return product;
 }
 
+int sum_of_every_nth_num(int start_num, int end_num, int n)
+{
+  int sum = 0;
+  for (start_num; start_num <= end_num; start_num += n)
+  {
+    sum += start_num;
+  }
+  return sum;
+}
+
+int sum_of_evens_between_two(int start_num, int end_num)
+{
+  start_num = is_odd(start_num) ? ++start_num : start_num;
+  return sum_of_every_nth_num(start_num, end_num, 2);
+}
+
 int main(void)
 {
-  int num;
-  printf("Enter a num: ");
-  scanf("%d", &num);
-  int product = product_of_n_num(num, 5);
-  printf("%d\n", product);
+  int num1, num2;
+  printf("Enter two nums: ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  int sum = sum_of_evens_between_two(num1, num2);
+  printf("%d\n", sum);
   return 0;
 }

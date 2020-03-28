@@ -61,16 +61,22 @@ float find_compound_interest(int principle_amount, float rate, float time)
   return principle_amount * (power((1 + rate / 100), time) - 1);
 }
 
+float convert_fahrenheit_to_celsius(float temp_in_F)
+{
+  return (temp_in_F - 32) * 5 / 9;
+}
+
+float convert_celsius_to_fahrenheit(float temp_in_C)
+{
+  return (temp_in_C * 9 / 5) + 32;
+}
+
 int main(void)
 {
-  int principle;
-  float time, rate;
-
-  printf("Enter three numbers: ");
-  scanf("%d", &principle);
-  scanf("%f", &rate);
-  scanf("%f", &time);
-  float compound_interest = find_compound_interest(principle, rate, time);
-  printf("%.2f\n", compound_interest);
+  int temp;
+  printf("Enter temp in F: ");
+  scanf("%d", &temp);
+  float temp_in_C = convert_fahrenheit_to_celsius(temp);
+  printf("%.2f\n", temp_in_C);
   return 0;
 }

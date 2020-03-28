@@ -93,13 +93,25 @@ int sum_of_evens_between_two(int start_num, int end_num)
   return sum_of_every_nth_num(start_num, end_num, 2);
 }
 
+void print_every_nth_num_in_reverse(int start_num, int end_num, int n)
+{
+  for (end_num; end_num >= start_num; end_num -= n)
+  {
+    printf("%d\n", end_num);
+  }
+}
+
+void print_odd_between_two_in_reverse(int start_num, int end_num)
+{
+  end_num = is_odd(end_num) ? end_num : --end_num;
+  print_every_nth_num_in_reverse(start_num, end_num, 2);
+}
+
 int main(void)
 {
-  int num1, num2;
-  printf("Enter two nums: ");
-  scanf("%d", &num1);
-  scanf("%d", &num2);
-  int sum = sum_of_evens_between_two(num1, num2);
-  printf("%d\n", sum);
+  int num;
+  printf("Enter a num: ");
+  scanf("%d", &num);
+  print_odd_between_two_in_reverse(1, num);
   return 0;
 }

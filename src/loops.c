@@ -137,47 +137,47 @@ int main(void)
   int num1, num2, num3;
   printf("\nEnter a num to find factorial, print fibonacci series: ");
   scanf("%d", &num1);
-  printf("1. Factorial\t factorial of %d is %d\n", num1, find_factorial(num1));
-  printf("2. Fibonacci\t fibonacci series\n", num1);
+  printf("\n1. Factorial\t factorial of %d is %d\n", num1, find_factorial(num1));
+  printf("\n2. Fibonacci\t fibonacci series\n", num1);
   print_fibonacci(num1);
 
   printf("\nEnter a num to print the odd and even num between 1 to N: ");
   scanf("%d", &num1);
-  printf("3. Odd num 1 to N :\n");
+  printf("\n3. Odd num 1 to N :\n");
   print_odd_num_1_to_n(num1);
-  printf("4. Even num 1 to N :\n");
+  printf("\n4. Even num 1 to N :\n");
   print_even_num_1_to_n(num1);
 
   printf("\nEnter two num to print multiplication table: ");
   scanf("%d", &num1);
   scanf("%d", &num2);
-  printf("5. Multiplication table  :\n");
+  printf("\n5. Multiplication table  :\n");
   print_multiplication_table(num1, num2);
 
   printf("\nEnter two num to calculate sum and product of n num: ");
   scanf("%d", &num1);
   scanf("%d", &num2);
-  printf("6. Sum of %d nums from %d: %d\n", num2, num1, sum_of_n_num(num1, num2));
-  printf("7. Product of %d nums from %d: %d\n", num2, num1, product_of_n_num(num1, num2));
+  printf("\n6. Sum of %d nums from %d: %d\n", num2, num1, sum_of_n_num(num1, num2));
+  printf("\n7. Product of %d nums from %d: %d\n", num2, num1, product_of_n_num(num1, num2));
 
   printf("\nEnter two num to print all odd numbers between two numbers: ");
   scanf("%d", &num1);
   scanf("%d", &num2);
-  printf("8. Print all odd numbers between two numbers \n");
+  printf("\n8. Print all odd numbers between two numbers \n");
   print_odd_between_two(num1, num2);
 
   printf("\nEnter three num to print every nth num between two nums : ");
   scanf("%d", &num1);
   scanf("%d", &num2);
   scanf("%d", &num3);
-  printf("9. Print every %d num from %d to %d \n", num3, num1, num2);
+  printf("\n9. Print every %d num from %d to %d \n", num3, num1, num2);
   print_every_nth_num(num1, num2, num3);
-  printf("10. Sum of all even num between %d to %d is ", num1, num2);
+  printf("\n10. Sum of all even num between %d to %d is ", num1, num2);
   printf("%d\n", sum_of_evens_between_two(num1, num2));
 
   printf("\nEnter a num to print the odd num reverse N to 1: ");
   scanf("%d", &num1);
-  printf("11. print odd num from %d to 1\n", num1);
+  printf("\n11. print odd num from %d to 1\n", num1);
   print_odd_N_to_1(num1);
   return 0;
 }

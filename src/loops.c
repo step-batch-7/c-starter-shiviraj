@@ -1,5 +1,22 @@
 #include <stdio.h>
 
+int find_factorial(int);
+void print_fibonacci(int);
+unsigned char is_odd(int);
+void print_every_nth_num(int, int, int);
+void print_odd_between_two(int, int);
+void print_odd_num_1_to_n(int);
+void print_even_between_two(int, int);
+void print_even_num_1_to_n(int);
+void print_multiplication_table(int, int);
+int sum_of_n_num(int, int);
+int product_of_n_num(int, int);
+int sum_of_every_nth_num(int, int, int);
+int sum_of_evens_between_two(int, int);
+void print_every_nth_num_in_reverse(int, int, int);
+void print_odd_between_two_in_reverse(int, int);
+void print_odd_N_to_1(int);
+
 int find_factorial(int num)
 {
   return num ? num * find_factorial(num - 1) : 1;

@@ -1,5 +1,19 @@
 #include <stdio.h>
 
+unsigned char is_even(int);
+unsigned char is_odd(int);
+int find_square(int);
+int find_cube(int);
+int find_gcd(int, int);
+int find_lcm(int, int);
+float find_simple_interest(float, float, float);
+float find_compound_interest(int, float, float);
+float convert_temp_F_to_C(float);
+float convert_temp_C_to_F(float);
+int find_greatest_num(int, int);
+int find_greatest_of_three(int, int, int);
+double find_average_of_three(int, int, int);
+
 unsigned char is_even(int num)
 {
   return num % 2 == 0;
@@ -29,11 +43,7 @@ int find_gcd(int divident, int divisor)
     divisor = thirdNumber;
   }
   int reminder = divident % divisor;
-  if (reminder == 0)
-  {
-    return divisor;
-  }
-  return find_gcd(divisor, reminder);
+  return reminder ? find_gcd(divisor, reminder) : divisor;
 }
 
 int find_lcm(int num1, int num2)
@@ -68,11 +78,7 @@ float convert_temp_C_to_F(float temp_in_C)
 
 int find_greatest_num(int num1, int num2)
 {
-  if (num1 > num2)
-  {
-    return num1;
-  }
-  return num2;
+  return (num1 > num2) ? num1 : num2;
 }
 
 int find_greatest_of_three(int num1, int num2, int num3)
@@ -81,9 +87,9 @@ int find_greatest_of_three(int num1, int num2, int num3)
   return find_greatest_num(greatest_num, num3);
 }
 
-float find_average_of_three(int num1, int num2, int num3)
+double find_average_of_three(int num1, int num2, int num3)
 {
-  float total = num1 + num2 + num3;
+  double total = num1 + num2 + num3;
   return total / 3;
 }
 
@@ -109,7 +115,7 @@ int main(void)
   scanf("%d", &num3);
   float si = find_simple_interest(num1, num2, num3);
   printf("7. SI\t SI of %d, %d, %d is %.2f\n", num1, num2, num3, si);
-  float ci = find_compound_interest(num1, num2, num3);
+  double ci = find_compound_interest(num1, num2, num3);
   printf("8. CI\t CI of %d, %d, %d is %.2f\n", num1, num2, num3, ci);
 
   printf("\nEnter temperature to convert from F to C and C to F: ");

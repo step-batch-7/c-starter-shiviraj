@@ -9,12 +9,11 @@ void print_fibonacci(int num)
 {
   int current_term = 0;
   int next_term = 1;
-  while (num > 0)
+  for (num; num > 0; num--)
   {
     printf("%d\n", current_term);
     next_term = current_term + next_term;
     current_term = next_term - current_term;
-    num--;
   }
 }
 
@@ -25,9 +24,9 @@ unsigned char is_odd(int num)
 
 void print_every_nth_num(int start_num, int end_num, int n)
 {
-  for (int num = start_num; num <= end_num; num += n)
+  for (start_num; start_num <= end_num; start_num += n)
   {
-    printf("%d\n", num);
+    printf("%d\n", start_num);
   }
 }
 
@@ -37,10 +36,20 @@ void print_odd_between_two(int start_num, int end_num)
   print_every_nth_num(start_num, end_num, 2);
 }
 
+void print_odd_num_1_to_n(int num)
+{
+  print_odd_between_two(1, num);
+}
+
 void print_even_between_two(int start_num, int end_num)
 {
   start_num = is_odd(start_num) ? ++start_num : start_num;
   print_every_nth_num(start_num, end_num, 2);
+}
+
+void print_even_num_1_to_n(int num)
+{
+  print_even_between_two(1, num);
 }
 
 void print_multiplication_table(int table, int end_num)
@@ -51,20 +60,14 @@ void print_multiplication_table(int table, int end_num)
   }
 }
 
-int sum_of_zero_to_n(int n)
-{
-  int sum = 0;
-  for (int num = 0; num <= n; num++)
-  {
-    sum = sum + num;
-  }
-  return sum;
-}
-
 int sum_of_n_num(int starting_num, int total_num)
 {
-  int sum = starting_num * total_num;
-  return sum + sum_of_zero_to_n(total_num - 1);
+  int sum = 0;
+  for (total_num; total_num > 0; total_num--)
+  {
+    sum = sum + starting_num + total_num;
+  }
+  return sum;
 }
 
 int product_of_n_num(int starting_num, int total_num)
@@ -107,11 +110,57 @@ void print_odd_between_two_in_reverse(int start_num, int end_num)
   print_every_nth_num_in_reverse(start_num, end_num, 2);
 }
 
+void print_odd_N_to_1(int num)
+{
+  print_odd_between_two_in_reverse(1, num);
+};
+
 int main(void)
 {
-  int num;
-  printf("Enter a num: ");
-  scanf("%d", &num);
-  print_odd_between_two_in_reverse(1, num);
+  int num1, num2, num3;
+  printf("\nEnter a num to find factorial, print fibonacci series: ");
+  scanf("%d", &num1);
+  printf("1. Factorial\t factorial of %d is %d\n", num1, find_factorial(num1));
+  printf("2. Fibonacci\t fibonacci series\n", num1);
+  print_fibonacci(num1);
+
+  printf("\nEnter a num to print the odd and even num between 1 to N: ");
+  scanf("%d", &num1);
+  printf("3. Odd num 1 to N :\n");
+  print_odd_num_1_to_n(num1);
+  printf("4. Even num 1 to N :\n");
+  print_even_num_1_to_n(num1);
+
+  printf("\nEnter two num to print multiplication table: ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  printf("5. Multiplication table  :\n");
+  print_multiplication_table(num1, num2);
+
+  printf("\nEnter two num to calculate sum and product of n num: ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  printf("6. Sum of %d nums from %d: %d\n", num2, num1, sum_of_n_num(num1, num2));
+  printf("7. Product of %d nums from %d: %d\n", num2, num1, product_of_n_num(num1, num2));
+
+  printf("\nEnter two num to print all odd numbers between two numbers: ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  printf("8. Print all odd numbers between two numbers \n");
+  print_odd_between_two(num1, num2);
+
+  printf("\nEnter three num to print every nth num between two nums : ");
+  scanf("%d", &num1);
+  scanf("%d", &num2);
+  scanf("%d", &num3);
+  printf("9. Print every %d num from %d to %d \n", num3, num1, num2);
+  print_every_nth_num(num1, num2, num3);
+  printf("10. Sum of all even num between %d to %d is ", num1, num2);
+  printf("%d\n", sum_of_evens_between_two(num1, num2));
+
+  printf("\nEnter a num to print the odd num reverse N to 1: ");
+  scanf("%d", &num1);
+  printf("11. print odd num from %d to 1\n", num1);
+  print_odd_N_to_1(num1);
   return 0;
 }

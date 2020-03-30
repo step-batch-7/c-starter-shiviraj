@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int print_money(money, denominations)
+int print_money(int, int);
+void print_currency(int);
+
+int print_int(int money, int denominations)
 {
   int unit = money / denominations;
   if (unit)
